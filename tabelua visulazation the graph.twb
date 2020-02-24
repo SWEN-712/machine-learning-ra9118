@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20192.19.0718.1543                               -->
+<workbook original-version='18.1' source-build='2019.2.2 (20192.19.0718.1543)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='AccessibleGC' inline='true' name='federated.0f7djlb1cn74m41guud601ob66z5' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='AccessibleGC' name='textscan.06ofb09108mrnd1329slz1hgvt4f'>
+            <connection class='textscan' directory='C:/Users/rana8/OneDrive/Desktop/ML-project' filename='AccessibleGC.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.06ofb09108mrnd1329slz1hgvt4f' name='AccessibleGC.csv' table='[AccessibleGC#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name='tweet title' ordinal='0' />
+            <column datatype='string' name='sentiment' ordinal='1' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[AccessibleGC.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tweet title</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[tweet title]</local-name>
+            <parent-name>[AccessibleGC.csv]</parent-name>
+            <remote-alias>tweet title</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sentiment</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[sentiment]</local-name>
+            <parent-name>[AccessibleGC.csv]</parent-name>
+            <remote-alias>sentiment</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Sentiment' datatype='string' name='[sentiment]' role='dimension' type='nominal' />
+      <column caption='Tweet Title' datatype='string' name='[tweet title]' role='dimension' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.519231' measure-ordering='alphabetic' measure-percentage='0.480769' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sentiment analysis'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='AccessibleGC' name='federated.0f7djlb1cn74m41guud601ob66z5' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0f7djlb1cn74m41guud601ob66z5'>
+            <column-instance column='[sentiment]' derivation='None' name='[none:sentiment:nk]' pivot='key' type='nominal' />
+            <column-instance column='[tweet title]' derivation='Count' name='[pcto:cnt:tweet title:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Columns' type='PctTotal' />
+            </column-instance>
+            <column caption='Sentiment' datatype='string' name='[sentiment]' role='dimension' type='nominal' />
+            <column caption='Tweet Title' datatype='string' name='[tweet title]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0f7djlb1cn74m41guud601ob66z5].[none:sentiment:nk]' />
+              <wedge-size column='[federated.0f7djlb1cn74m41guud601ob66z5].[pcto:cnt:tweet title:qk]' />
+              <size column='[federated.0f7djlb1cn74m41guud601ob66z5].[pcto:cnt:tweet title:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.1534254550933838' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+        <percentages enabled='true' mode='column' />
+      </table>
+      <simple-id uuid='{8498B850-BB85-40EB-BC56-B47006880DE9}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' maximized='true' name='Sentiment analysis'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0f7djlb1cn74m41guud601ob66z5].[none:sentiment:nk]' type='color' />
+            <card pane-specification-id='0' param='[federated.0f7djlb1cn74m41guud601ob66z5].[pcto:cnt:tweet title:qk]' type='size' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <selection-collection>
+          <tuple-selection>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0f7djlb1cn74m41guud601ob66z5].[none:sentiment:nk]</field>
+                  <field>[federated.0f7djlb1cn74m41guud601ob66z5].[pcto:cnt:tweet title:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Negative&quot;</value>
+                <value>0.075376884422110546</value>
+              </tuple>
+            </tuple-reference>
+          </tuple-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0f7djlb1cn74m41guud601ob66z5].[none:sentiment:nk]</field>
+            <field>[federated.0f7djlb1cn74m41guud601ob66z5].[none:tweet title:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{9938CB34-808D-456C-AE8E-ED3B5211AB3E}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sentiment analysis' width='192'>
+      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
+      jQGQ1f4PcGKCxf4Q4tgAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>

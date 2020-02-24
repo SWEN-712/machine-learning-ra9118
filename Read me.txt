@@ -1,0 +1,6 @@
+pre request:
+install pip
+install tweepy
+ for extract the tweets i used python 
+to filter the text from un nessacery charecters and http i used TextNLP liberary
+to extraxt the positive and negative words i used : TextBlob liberary in python 
